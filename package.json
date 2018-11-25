@@ -1,0 +1,25 @@
+{
+  "name": "create-rollup",
+  "version": "0.0.0",
+  "description": "This is a Placeholder for the rollup init",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stealify/create-rollup.git"
+  },
+  "keywords": [
+    "rollup",
+    "npm",
+    "init",
+    "yarn"
+  ],
+  "author": "Frank Lemanschik <frank@dspeed.eu>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/stealify/create-rollup/issues"
+  },
+  "homepage": "https://github.com/stealify/create-rollup#readme"
+}
