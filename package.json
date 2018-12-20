@@ -1,7 +1,7 @@
 {
   "name": "create-rollup",
-  "version": "0.0.0",
-  "description": "This is a Placeholder for the rollup init",
+  "version": "0.0.1",
+  "description": "rollup init es2018+ Bundels front and backend apps",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -21,5 +21,25 @@
   "bugs": {
     "url": "https://github.com/stealify/create-rollup/issues"
   },
-  "homepage": "https://github.com/stealify/create-rollup#readme"
+  "homepage": "https://github.com/stealify/create-rollup#readme",
+  "devDependencies": {
+    "rollup-plugin-size-snapshot": "^0.7.0",
+    "eslint": "^5.10.0",
+    "esm": "^3.0.84",
+    "funcunit": "^3.6.1",
+    "postcss": "^7.0.7",
+    "rollup": "^0.68.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-eslint": "^5.0.0",
+    "rollup-plugin-eslint-bundle": "^5.0.2",
+    "rollup-plugin-less-modules": "^0.1.10",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-terser": "^3.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-dynamic-import-node": "^2.2.0"
+  }
 }
