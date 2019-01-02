@@ -39,7 +39,7 @@
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-eslint": "5.0.0",
     "rollup-plugin-eslint-bundle": "5.0.2",
-    "rollup-plugin-less-modules": "0.1.10",
+    "rollup-plugin-less-modules": "0.1.11",
     "rollup-plugin-node-builtins": "2.1.2",
     "rollup-plugin-node-globals": "1.4.0",
     "rollup-plugin-node-resolve": "4.0.0",
