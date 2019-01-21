@@ -35,7 +35,7 @@
     "esm": "3.1.1",
     "funcunit": "3.6.2",
     "postcss": "7.0.13",
-    "rollup": "1.1.1",
+    "rollup": "1.1.2",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-eslint": "5.0.0",
     "rollup-plugin-eslint-bundle": "5.0.2",
