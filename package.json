@@ -31,7 +31,7 @@
     "babel-eslint": "10.0.1",
     "babel-plugin-dynamic-import-node": "2.2.0",
     "debug": "4.1.1",
-    "eslint": "5.12.1",
+    "eslint": "5.13.0",
     "esm": "3.1.2",
     "funcunit": "3.6.2",
     "postcss": "7.0.14",
