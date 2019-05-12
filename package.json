@@ -42,7 +42,7 @@
     "rollup-plugin-less-modules": "0.1.11",
     "rollup-plugin-node-builtins": "2.1.2",
     "rollup-plugin-node-globals": "1.4.0",
-    "rollup-plugin-node-resolve": "4.0.1",
+    "rollup-plugin-node-resolve": "4.2.4",
     "rollup-plugin-size-snapshot": "0.8.0",
     "rollup-plugin-string": "3.0.0",
     "rollup-plugin-terser": "4.0.3"
