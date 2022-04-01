@@ -1,65 +1,64 @@
 #!/usr/bin/env node
-/* global process */
-const { name } = require('./package.json');
-
-const fs = require('fs');
+const process = require('process');
 const path = require('path');
+const { basename, join } = require('path');
 const Debug = require('debug');
+const { 
+  writeFileSync, 
+  lstatSync,
+  readdirSync,
+  readFileSync,
+  existsSync,
+  mkdirSync
+} = require('fs');
+
+const { name } = JSON.parse(readFileSync('./package.json'));
 const debug = Debug('FileTransfer::');
+
 if (name === 'create-rollup' && process.cwd().indexOf('create-rollup') >-1 ) {
   debug('Detected myself',process.cwd());
   process.exit();
 }
+//if target is a directory a new file with the same name will be created
+const normalizeTarget = (target, source) => (existsSync(target) && lstatSync(target).isDirectory()) 
+  ? path.join(target, basename(source)) 
+  : target;
 
-function copyFileSync( source, target ) {
+const copyFileSync = (source, target) => 
+ !existsSync(target) && writeFileSync(target, readFileSync(source));
 
-  var targetFile = target;
-
-  //if target is a directory a new file with the same name will be created
-  if ( fs.existsSync( target ) ) {
-    if ( fs.lstatSync( target ).isDirectory() ) {
-      targetFile = path.join( target, path.basename( source ) );
-    }
-  }
-
-  fs.writeFileSync(targetFile, fs.readFileSync(source));
-}
 
 function copyRecursiveSync( source, target ) {
   var files = [];
 
   //check if folder needs to be created or integrated
-  let targetPath = path.basename( source );
-  if (targetPath === 'create-rollup') {
-    targetPath = '';
-    debug([path.basename( source )].join());  
+  let targetPath = (basename(source) === 'create-rollup') ? '' : basename(source);
+  if (targetPath === '') {
+    debug([basename( source )].join());  
   }
-  var targetFolder = path.join( target, targetPath); // 
-  
-  
-  if (path.basename( source ) === 'node_modules' || path.basename( source ) === '.git') {
-    debug('targetFolder =>',targetFolder,path.basename( target));
-    debug('srcFolder =>',source,path.basename( target));
+  var targetFolder = path.join( target, targetPath);
+    
+  if (basename( source ) === 'node_modules' || basename(source) === '.git') {
+    debug('targetFolder =>',targetFolder,basename( target));
+    debug('srcFolder =>',source,basename( target));
     return;
   }
+
   debug('targetFolder =>',targetFolder);
-  if ( !fs.existsSync( targetFolder ) ) {
-    fs.mkdirSync( targetFolder );
+  if ( !existsSync( targetFolder ) ) {
+    mkdirSync( targetFolder );
   }
 
   //copy
-  if ( fs.lstatSync( source ).isDirectory() ) {
-    files = fs.readdirSync( source );
-
-
-    files.forEach( function ( file ) {
-      var curSource = path.join( source, file );
-      
-      if (path.basename(curSource) === '.git') {
+  if ( lstatSync(source).isDirectory() ) {
+    
+    readdirSync(source).forEach( ( file ) => {
+      var curSource = path.join( source, file ); 
+      if (basename(curSource) === '.git') {
         return;
       }
 
-      if (path.basename(curSource) === 'node_modules') {
+      if (basename(curSource) === 'node_modules') {
         return; 
       }
 
@@ -67,9 +66,14 @@ function copyRecursiveSync( source, target ) {
       if ( fs.lstatSync( curSource ).isDirectory() ) {
         copyRecursiveSync( curSource, targetFolder );
       } else {
-        copyFileSync( curSource, targetFolder );
+        const normalizedTarget = normalizeTarget(targetFolder)
+        if (!existsSync(normalizedTarget)) {
+          copyFileSync( curSource, normalizedTarget );
+        } else {
+          console.warn(normalizedTarget, 'got created already please delete')
+        }
       }
-    } );
+    });
   }
 }
 
