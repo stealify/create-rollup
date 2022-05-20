@@ -26,9 +26,9 @@
   },
   "homepage": "https://github.com/stealify/create-rollup#readme",
   "devDependencies": {
-    "@babel/core": "7.2.2",
-    "@babel/plugin-syntax-dynamic-import": "7.2.0",
-    "babel-eslint": "10.0.1",
+    "@babel/core": "7.18.0",
+    "@babel/plugin-syntax-dynamic-import": "7.8.3",
+    "babel-eslint": "10.1.0",
     "babel-plugin-dynamic-import-node": "2.2.0",
     "debug": "4.1.1",
     "esm": "3.2.4",
