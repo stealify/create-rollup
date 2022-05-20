@@ -33,7 +33,7 @@
     "debug": "4.1.1",
     "esm": "3.2.4",
     "eslint": "5.13.0",
-    "funcunit": "3.6.2",
+    "funcunit": "3.7.0",
     "postcss": "7.0.18",
     "rollup": "2.74.1",
     "rollup-plugin-commonjs": "9.2.1",
